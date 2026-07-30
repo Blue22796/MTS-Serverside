@@ -1,0 +1,28 @@
+<nav class="navbar">
+
+    <div class="navbar-brand">
+        <h2>MTS</h2>
+    </div>
+
+    <div class="navbar-links">
+        <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+            Tickets
+        </a>
+
+        <a routerLink="/create-ticket" routerLinkActive="active">
+            Create Ticket
+        </a>
+    </div>
+
+    <form class="navbar-search" (ngSubmit)="searchTicket()">
+        <input
+            type="number"
+            name="ticketSearchId"
+            [(ngModel)]="ticketSearchId"
+            placeholder="Ticket ID"
+            min="1">
+
+        <button type="submit">Go</button>
+    </form>
+
+</nav>

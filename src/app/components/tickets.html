@@ -1,0 +1,64 @@
+<div class="tickets-container">
+
+    <table class="tickets-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Customer</th>
+                <th>Phone</th>
+                <th>Address</th>
+                <th>Technician</th>
+                <th>Status</th>
+                <th>Calls</th>
+                <th>Proposed</th>
+                <th>Scheduled</th>
+                <th>Created</th>
+                <th>Notes</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr
+                *ngFor="let ticket of tickets"
+                (click)="openTicket(ticket.id)"
+            >
+                <td>{{ ticket.id }}</td>
+                <td>{{ ticket.customerName }}</td>
+                <td>{{ ticket.customerPhone }}</td>
+                <td>{{ ticket.customerAddress }}</td>
+
+                <td>
+                    {{ ticket.technicianName || '-' }}
+                </td>
+
+                <td>
+                    <span
+                        class="status-badge"
+                        [ngClass]="ticket.status.toLowerCase()"
+                    >
+                        {{ ticket.status }}
+                    </span>
+                </td>
+
+                <td>{{ ticket.calls }}</td>
+
+                <td>
+                    {{ ticket.proposedDate | date:'fullDate' }}
+                </td>
+
+                <td>
+                    {{ ticket.scheduledDate ? (ticket.scheduledDate | date:'shortDate') : '-' }}
+                </td>
+
+                <td>
+                    {{ ticket.creationDate | date:'short' }}
+                </td>
+
+                <td class="notes">
+                    {{ ticket.notes || '-' }}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>

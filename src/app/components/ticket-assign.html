@@ -1,0 +1,98 @@
+<div class="container">
+
+  <div
+    class="error-message"
+    *ngIf="errorMessage">
+
+    {{ errorMessage }}
+
+  </div>
+
+
+  <h2>Assign Ticket</h2>
+
+
+  <div class="field">
+
+    <label>
+      Ticket ID
+    </label>
+
+    <input
+      type="text"
+      [value]="ticketId"
+      disabled>
+
+  </div>
+
+
+
+  <div class="field">
+
+    <label>
+      Technician
+    </label>
+
+    <select
+      [(ngModel)]="selectedTechnicianId"
+      (change)="changeTechnician()">
+
+      <option [ngValue]="null">
+        Select technician
+      </option>
+
+
+      <option
+        *ngFor="let tech of technicians"
+        [ngValue]="tech.id">
+
+        {{ tech.name }}
+        - {{ tech.location }}
+
+      </option>
+
+    </select>
+
+  </div>
+
+
+
+  <div class="field">
+
+    <label>
+      Available Slot
+    </label>
+
+
+    <select
+      [(ngModel)]="selectedSlot"
+      [disabled]="!selectedTechnicianId">
+
+      <option value="">
+        Select a slot
+      </option>
+
+
+      <option
+        *ngFor="let slot of availableSlots"
+        [value]="slot">
+
+        {{ slot }}
+
+      </option>
+
+    </select>
+
+  </div>
+
+
+
+  <button
+    (click)="assignTicket()">
+
+    Assign Ticket
+
+  </button>
+
+
+</div>

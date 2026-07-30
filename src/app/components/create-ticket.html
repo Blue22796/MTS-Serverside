@@ -1,0 +1,111 @@
+<div class="ticket-form">
+   <div class="ticket-creation">
+        <h3>Ticket Creation</h3>
+
+        <div class="error server-error" *ngIf="errorMessage">
+            {{ errorMessage }}
+        </div>
+
+        <form #ticketForm="ngForm" (ngSubmit)="createTicket()">
+
+            <label>Customer Name</label>
+            <input
+                type="text"
+                name="customerName"
+                [(ngModel)]="ticket.customerName"
+                #customerName="ngModel"
+                required
+                minlength="3"
+                pattern="^[a-zA-Z]+([ '-][a-zA-Z]+)*$">
+
+            <div class="error" *ngIf="customerName.invalid && customerName.touched">
+                <span *ngIf="customerName.errors?.['required']">
+                    Customer name is required.
+                </span>
+                <span *ngIf="customerName.errors?.['minlength'] || customerName.errors?.['pattern']">
+                    Customer name must: be at least 3 characters, start and end with a character and contain no numbers or special characters.
+                </span>
+            </div>
+
+
+            <label>Customer Address</label>
+            <input
+                type="text"
+                name="customerAddress"
+                [(ngModel)]="ticket.customerAddress"
+                #customerAddress="ngModel"
+                minlength="5">
+
+            <div class="error" *ngIf="customerAddress.invalid && customerAddress.touched">
+                <span *ngIf="customerAddress.errors?.['required']">
+                    Address is required.
+                </span>
+                <span *ngIf="customerAddress.errors?.['minlength']">
+                    Address is too short.
+                </span>
+            </div>
+
+
+            <label>Customer Phone</label>
+            <input
+                type="tel"
+                name="customerPhone"
+                [(ngModel)]="ticket.customerPhone"
+                #customerPhone="ngModel"
+                required
+                pattern="^(\\+20|0)?1[0125][0-9]{8}$">
+
+            <div class="error" *ngIf="customerPhone.invalid && customerPhone.touched">
+                <span *ngIf="customerPhone.errors?.['required']">
+                    Phone number is required.
+                </span>
+                <span *ngIf="customerPhone.errors?.['pattern']">
+                    Enter a valid Egyptian mobile number.
+                </span>
+            </div>
+
+
+            <label>Customer Email</label>
+            <input
+                type="email"
+                name="customerEmail"
+                [(ngModel)]="ticket.customerEmail"
+                #customerEmail="ngModel"
+                email>
+
+            <div class="error" *ngIf="customerEmail.invalid && customerEmail.touched">
+                <span *ngIf="customerEmail.errors?.['email']">
+                    Enter a valid email address.
+                </span>
+            </div>
+            <label>Proposed Date</label>
+            <input
+                type="date"
+                name="proposedDate"
+                [(ngModel)]="ticket.proposedDate"
+                #proposedDate="ngModel"
+                required>
+
+            <div class="error" *ngIf="proposedDate.invalid && proposedDate.touched">
+                Proposed date is required.
+            </div>
+
+
+            <label>Notes</label>
+            <textarea
+                name="notes"
+                [(ngModel)]="ticket.notes"
+                rows="4"
+                maxlength="500">
+            </textarea>
+
+
+            <button
+                type="submit"
+                [disabled]="ticketForm.invalid">
+                Create Ticket
+            </button>
+
+        </form>
+    </div>
+</div>

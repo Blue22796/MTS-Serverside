@@ -1,0 +1,116 @@
+<div class="details-container" *ngIf="ticket">
+
+    <h2>Ticket #{{ ticket.id }}</h2>
+
+    <div class="section">
+        <h3>Customer Information</h3>
+
+        <div class="field">
+            <span class="label">Name</span>
+            <span>{{ ticket.customerName }}</span>
+        </div>
+
+        <div class="field">
+            <span class="label">Phone</span>
+            <span>{{ ticket.customerPhone }}</span>
+        </div>
+
+        <div class="field">
+            <span class="label">Address</span>
+            <span>{{ ticket.customerAddress }}</span>
+        </div>
+    </div>
+
+
+    <div class="section">
+        <h3>Ticket Information</h3>
+
+        <div class="field">
+            <span class="label">Status</span>
+            <span>{{ ticket.status }}</span>
+        </div>
+
+        <div class="field">
+            <span class="label">Technician</span>
+            <span>{{ ticket.technicianName || '-' }}</span>
+        </div>
+
+        <div class="field">
+            <span class="label">Calls</span>
+            <span>{{ ticket.calls }}</span>
+        </div>
+    </div>
+
+
+    <div class="section">
+        <h3>Dates</h3>
+
+        <div class="field">
+            <span class="label">Created</span>
+            <span>{{ ticket.creationDate | date:'medium' }}</span>
+        </div>
+
+        <div class="field">
+            <span class="label">Proposed</span>
+            <span>{{ ticket.proposedDate | date:'fullDate' }}</span>
+        </div>
+
+        <div class="field">
+            <span class="label">Scheduled</span>
+            <span>
+                {{ ticket.scheduledDate ? (ticket.scheduledDate | date:'medium') : '-' }}
+            </span>
+        </div>
+    </div>
+
+
+    <div class="section">
+        <h3>Notes</h3>
+
+        <div class="notes">
+            {{ ticket.notes || 'No notes.' }}
+        </div>
+    </div>
+
+
+    <div class="actions">
+
+        <button
+            class="primary"
+            *ngIf="canAssign"
+            (click)="assign()">
+            Assign
+        </button>
+
+
+        <button
+            class="secondary"
+            *ngIf="canReassign"
+            (click)="reassign()">
+            Reassign
+        </button>
+
+
+        <button
+            class="secondary"
+            *ngIf="canReassign"
+            (click)="reschedule()">
+            Reschedule
+        </button>
+
+
+        <button
+            class="secondary"
+            *ngIf="canCancel"
+            (click)="cancel()">
+            Cancel
+        </button>
+
+    </div>
+
+</div>
+
+
+<div class="error" *ngIf="errorMessage">
+    {{ errorMessage }}
+</div>

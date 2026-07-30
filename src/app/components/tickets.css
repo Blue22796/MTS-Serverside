@@ -1,0 +1,77 @@
+.tickets-container {
+    width: 100%;
+    overflow-x: auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.tickets-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.tickets-table th,
+.tickets-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid #e5e5e5;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.tickets-table th {
+    background: #f5f5f5;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.tickets-table tbody tr {
+    transition: background-color 0.15s ease;
+}
+
+.tickets-table tbody tr:hover {
+    background: #eef6ff;
+    cursor: pointer;
+}
+
+.tickets-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.notes {
+    max-width: 300px;
+    white-space: normal;
+    word-break: break-word;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.status-badge.pending {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.status-badge.in_progress {
+    background: #d1ecf1;
+    color: #0c5460;
+}
+
+.status-badge.completed {
+    background: #d4edda;
+    color: #155724;
+}
+
+.status-badge.cancelled {
+    background: #f8d7da;
+    color: #721c24;
+}

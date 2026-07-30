@@ -1,0 +1,163 @@
+.ticket-form {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #eef2ff, #f8fafc);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.ticket-creation {
+    width: 100%;
+    max-width: 600px;
+    background: white;
+    padding: 35px 40px;
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.ticket-creation h3 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #1e293b;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.ticket-creation form {
+    display: flex;
+    flex-direction: column;
+}
+
+.ticket-creation label {
+    margin-bottom: 8px;
+    margin-top: 15px;
+    color: #334155;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.ticket-creation input,
+.ticket-creation textarea,
+.ticket-creation select {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    font-size: 15px;
+    outline: none;
+    transition: all 0.25s ease;
+    box-sizing: border-box;
+    background-color: #f8fafc;
+}
+
+.ticket-creation input:focus,
+.ticket-creation textarea:focus,
+.ticket-creation select:focus {
+    border-color: #6366f1;
+    background-color: white;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+}
+
+.ticket-creation textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.ticket-creation input::placeholder,
+.ticket-creation textarea::placeholder {
+    color: #94a3b8;
+}
+
+/* Validation */
+
+.error {
+    margin-top: 6px;
+    margin-bottom: 5px;
+    color: #dc2626;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+/* Backend/server error */
+
+.server-error {
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    padding: 12px;
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+/* Invalid fields */
+
+.ticket-creation input.ng-invalid.ng-touched,
+.ticket-creation textarea.ng-invalid.ng-touched,
+.ticket-creation select.ng-invalid.ng-touched {
+    border-color: #dc2626;
+    background: #fef2f2;
+}
+
+/* Valid fields */
+
+.ticket-creation input.ng-valid.ng-touched,
+.ticket-creation textarea.ng-valid.ng-touched,
+.ticket-creation select.ng-valid.ng-touched {
+    border-color: #16a34a;
+    background: #f0fdf4;
+}
+
+/* Focus states */
+
+.ticket-creation input.ng-invalid.ng-touched:focus,
+.ticket-creation textarea.ng-invalid.ng-touched:focus,
+.ticket-creation select.ng-invalid.ng-touched:focus {
+    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.15);
+}
+
+.ticket-creation input.ng-valid.ng-touched:focus,
+.ticket-creation textarea.ng-valid.ng-touched:focus,
+.ticket-creation select.ng-valid.ng-touched:focus {
+    box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.15);
+}
+
+/* Submit button */
+
+.ticket-creation button {
+    margin-top: 30px;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #4f46e5, #6366f1);
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ticket-creation button:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(79, 70, 229, 0.35);
+}
+
+.ticket-creation button:disabled {
+    background: #cbd5e1;
+    color: #64748b;
+    cursor: not-allowed;
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+    .ticket-creation {
+        padding: 25px;
+    }
+
+    .ticket-creation h3 {
+        font-size: 24px;
+    }
+}

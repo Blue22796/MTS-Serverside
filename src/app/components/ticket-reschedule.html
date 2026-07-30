@@ -1,0 +1,59 @@
+<div class="assign-container">
+
+    <h2>Reschedule Ticket</h2>
+
+    <div class="field">
+
+        <label for="slot">
+            Select New Time Slot
+        </label>
+
+        <select
+            id="slot"
+            [(ngModel)]="selectedSlot">
+
+            <option value="">
+                -- Select a time slot --
+            </option>
+
+            <option
+                *ngFor="let slot of availableSlots"
+                [value]="slot">
+
+                {{ slot | date:'medium' }}
+
+            </option>
+
+        </select>
+
+    </div>
+
+    <div
+        class="error"
+        *ngIf="errorMessage">
+
+        {{ errorMessage }}
+
+    </div>
+
+    <div class="actions">
+
+        <button
+            class="primary"
+            (click)="rescheduleTicket()">
+
+            Reschedule
+
+        </button>
+
+        <button
+            class="secondary"
+            routerLink="/">
+
+            Cancel
+
+        </button>
+
+    </div>
+
+</div>
