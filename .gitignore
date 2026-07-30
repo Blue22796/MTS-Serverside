@@ -1,0 +1,69 @@
+# =========================
+# Maven
+# =========================
+target/
+
+# =========================
+# IDEs
+# =========================
+
+# IntelliJ IDEA
+.idea/
+*.iml
+out/
+
+# VS Code
+.vscode/
+
+# Eclipse / STS
+.project
+.classpath
+.settings/
+.factorypath
+.springBeans
+.sts4-cache/
+bin/
+
+# NetBeans
+nbproject/private/
+nbbuild/
+dist/
+nbdist/
+
+# =========================
+# Java
+# =========================
+*.class
+*.jar
+*.war
+*.ear
+
+# =========================
+# Logs
+# =========================
+*.log
+logs/
+
+# =========================
+# Environment / Secrets
+# =========================
+.env
+.env.*
+
+src/main/resources/application.properties
+
+# =========================
+# OS files
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# Temporary files
+# =========================
+*.tmp
+*.swp
+*.swo
+*~
+hs_err_pid*
+replay_pid*
